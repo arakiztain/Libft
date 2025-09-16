@@ -6,23 +6,11 @@
 /*   By: garakizt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 18:23:42 by garakizt          #+#    #+#             */
-/*   Updated: 2025/09/15 18:30:28 by garakizt         ###   ########.fr       */
+/*   Updated: 2025/09/16 09:17:37 by garakizt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char *str)
+int	ft_isdigit(int c)
 {
-	int	i;
-	
-	i = 1;
-	while (*str != '\0')
-	{
-		if (!(*str >= '0' && *str <= '9'))
-		{
-			i = 0;
-			break ;
-		}
-		str++;
-	}
-	return (i);
+	return (c >= '0' && c <= '9');
 }

@@ -1,16 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: garakizt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/15 17:49:39 by garakizt          #+#    #+#             */
-/*   Updated: 2025/09/16 09:24:53 by garakizt         ###   ########.fr       */
+/*   Created: 2025/09/16 11:46:04 by garakizt          #+#    #+#             */
+/*   Updated: 2025/09/16 12:11:11 by garakizt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+char	*ft_strchr(const char *str, int c)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == (char)c)
+			return ((char *)(str + i));
+		i++;
+	}
+	if ((char)c == '\0')
+		return ((char *)(str + i));
+	return (NULL);
 }

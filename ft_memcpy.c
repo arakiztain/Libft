@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: garakizt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/15 17:49:39 by garakizt          #+#    #+#             */
-/*   Updated: 2025/09/16 09:24:53 by garakizt         ###   ########.fr       */
+/*   Created: 2025/09/16 10:39:56 by garakizt          #+#    #+#             */
+/*   Updated: 2025/09/16 10:56:16 by garakizt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include <stddef.h>
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	size_t	i;
+	unsigned char	d;
+	const unsigned char	s;
+
+	if (!dest && !src)
+		return (NULL);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = src[i];
+		i++;
+	}
+	return (dest);
 }
