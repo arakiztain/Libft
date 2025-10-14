@@ -1,56 +1,66 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: garakizt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 11:17:38 by garakizt          #+#    #+#             */
-/*   Updated: 2025/10/10 11:52:17 by garakizt         ###   ########.fr       */
+/*   Created: 2025/07/30 12:19:13 by garakizt          #+#    #+#             */
+/*   Updated: 2025/10/13 13:06:59 by garakizt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_strlen(char *str)
+int	nbrlen(int nbr)
 {
 	int	i;
 
+	if (nbr == 0)
+		return (1);
 	i = 0;
-	while (str[i] != '\0')
+	while (nbr != 0)
+	{
+		nbr /= 10;
 		i++;
+	}
 	return (i);
 }
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_itoa(int nbr)
 {
+	long	n;
+	int	len;
 	char	*r;
-	size_t	i;
 
-
-	if (start >= ft_strlen(s))
-	{
-		r = malloc(1);
-		if (!r)
-			return (NULL);
-		r[0] = '\0';
-		return (r);
-	}
-	i = 0;
+	n = nbr;
+	if (n < 0)
+		len = nbrlen(-n) + 1;
+	else
+		len = nbrlen(n);
 	r = (char *)malloc(sizeof(char) * (len + 1));
 	if (r == NULL)
-		return (NULL);
-	while (s[start + i] != '\0' && i < len)
+		return NULL;
+	r[len] = '\0';
+	if (n == 0)
+		return(r[0] = '0', r[1] = '\0', r);
+	else if (n < 0)
 	{
-		r[i] = s[start + i];
-		i++;
+		r[0] = '-';
+		n = -n;
 	}
-	r[i] = '\0';
+	len--;
+	while (n != 0)
+	{	
+		r[len] = (n % 10) + '0';
+		n /= 10;
+		len--;
+	}
 	return (r);
 }
 /*
 int	main(void)
 {
-	printf("%s", ft_substr("hola mundo", 6, 3));
+	printf("%s", ft_itoa(0));
+	return (0);
 }*/

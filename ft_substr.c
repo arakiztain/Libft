@@ -6,42 +6,37 @@
 /*   By: garakizt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 11:17:38 by garakizt          #+#    #+#             */
-/*   Updated: 2025/10/10 11:52:25 by garakizt         ###   ########.fr       */
+/*   Updated: 2025/10/14 14:53:10 by garakizt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*r;
 	size_t	i;
+	size_t	s_len;
+	size_t	actual_len;
 
-
-	if (start >= ft_strlen(s))
+	i = 0;
+	s_len = ft_strlen(s);
+	if (start >= s_len)
 	{
-		r = malloc(1);
+		r = (char *)malloc(1);
 		if (!r)
 			return (NULL);
 		r[0] = '\0';
 		return (r);
 	}
-	i = 0;
-	r = (char *)malloc(sizeof(char) * (len + 1));
-	if (r == NULL)
+	if (s_len - start < len)
+		actual_len = s_len - start;
+	else
+		actual_len = len;
+	r = (char *)malloc(actual_len + 1);
+	if (!r)
 		return (NULL);
-	while (s[start + i] != '\0' && i < len)
+	while (i < actual_len)
 	{
 		r[i] = s[start + i];
 		i++;
@@ -49,6 +44,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	r[i] = '\0';
 	return (r);
 }
+
 /*
 int	main(void)
 {
