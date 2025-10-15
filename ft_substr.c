@@ -12,30 +12,41 @@
 
 #include "libft.h"
 
+static size_t	ft_actual_len(char const *s, unsigned int start, size_t len)
+{
+	size_t	s_len;
+
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (0);
+	if (s_len - start < len)
+		return (s_len - start);
+	return (len);
+}
+
+static char	*ft_alloc_substr(size_t actual_len)
+{
+	char	*r;
+
+	r = (char *)malloc(actual_len + 1);
+	if (!r)
+		return (NULL);
+	return (r);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*r;
 	size_t	i;
-	size_t	s_len;
 	size_t	actual_len;
 
-	i = 0;
-	s_len = ft_strlen(s);
-	if (start >= s_len)
-	{
-		r = (char *)malloc(1);
-		if (!r)
-			return (NULL);
-		r[0] = '\0';
-		return (r);
-	}
-	if (s_len - start < len)
-		actual_len = s_len - start;
-	else
-		actual_len = len;
-	r = (char *)malloc(actual_len + 1);
+	if (!s)
+		return (NULL);
+	actual_len = ft_actual_len(s, start, len);
+	r = ft_alloc_substr(actual_len);
 	if (!r)
 		return (NULL);
+	i = 0;
 	while (i < actual_len)
 	{
 		r[i] = s[start + i];
@@ -44,7 +55,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	r[i] = '\0';
 	return (r);
 }
-
 /*
 int	main(void)
 {

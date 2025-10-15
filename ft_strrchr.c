@@ -6,7 +6,7 @@
 /*   By: garakizt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 12:16:24 by garakizt          #+#    #+#             */
-/*   Updated: 2025/09/16 12:24:22 by garakizt         ###   ########.fr       */
+/*   Updated: 2025/10/15 11:22:20 by garakizt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int		i;
 	char	*last;
 
 	i = 0;

@@ -15,26 +15,22 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*r;
-	int	start;
-	int	end;
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
-	start = ft_strlen(s1);
-	end = ft_strlen(s2);
-	r = malloc(sizeof(char) * (start + end + 1));
+	r = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!r)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (i < start)
+	while (i < ft_strlen(s1))
 	{
 		r[j] = s1[i];
 		i++;
 		j++;
 	}
 	i = 0;
-	while (i < end)
+	while (i < ft_strlen(s2))
 	{
 		r[j] = s2[i];
 		i++;

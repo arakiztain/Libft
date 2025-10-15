@@ -6,7 +6,7 @@
 /*   By: garakizt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:34:06 by garakizt          #+#    #+#             */
-/*   Updated: 2025/07/19 19:43:38 by garakizt         ###   ########.fr       */
+/*   Updated: 2025/10/15 11:21:48 by garakizt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	unsigned int	i;
 
 	i = 0;
-
 	if (size > 0)
 	{
 		while (src[i] && i < size - 1)
@@ -27,11 +26,9 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		}
 		dest[i] = '\0';
 	}
-
 	i = 0;
 	while (src[i])
 		i++;
-
 	return (i);
 }
 /*

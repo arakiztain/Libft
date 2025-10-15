@@ -6,7 +6,7 @@
 /*   By: garakizt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 09:34:48 by garakizt          #+#    #+#             */
-/*   Updated: 2025/09/16 10:22:51 by garakizt         ###   ########.fr       */
+/*   Updated: 2025/10/15 11:28:35 by garakizt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t		i;
 	unsigned char	*ptr;
+	size_t			i;
 
 	ptr = (unsigned char *)s;
 	i = 0;
